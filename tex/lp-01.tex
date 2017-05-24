@@ -1,0 +1,134 @@
+\documentclass{article}
+
+    \usepackage[margin=1in]{geometry}
+    \usepackage{hyperref}
+    \usepackage{listings}
+    
+    \lstset{
+        breaklines = true,
+        language = SQL,
+        numbers = left,
+        basicstyle = \footnotesize
+    }
+
+    \title{Lesson Plan 01, ISTA-420}
+    \author{Chapter 1, T-SQL Fundamentals}
+    \date{May 30, 2017}
+
+\begin{document}    
+
+    \maketitle{}
+
+
+    \section{Class Discussion --- Overview of Databases}
+
+        \subsection{Database environment}
+            \subsubsection{management}
+            The primary purpose of a database is to store \textit{knowledge} for the ultimate purpose of converting that knowledge into \textit{information}. Managers aren't intereted in data, but information, and the job of a database professional is to extract data from a database in order to furnish information to the user.
+            \subsubsection{machine}
+            The machine has storage (the hard drive), memory (RAM), and computational capabilities (CPU). A database professional must understand how to use the computational power of the machine to perform his assigned tasks.
+            \subsubsection{theory}
+            Relational databases have a very strong mathematical foundation. In essence, a database professional is a mathematician, usinmg relational algebra to do his job. Don't worry, we don't use numbers!
+            \subsubsection{tools}
+            A database professional uses a number of different tools. Microsoft tools include SSMS, SSIS, SSRS, and SSAS. Reporting tools include Business Objects, Tableau, and Spotfire. Programming tools may include C\#, Java, Python, R, and JavaScript.
+            \subsubsection{interface}
+            SQL Server uses SSMS as an interface. Not only do you need to understand SQL and SQL Server, you also need to understand how to use the interface.
+            \subsubsection{language}
+            Microsoft has extended SQL and has named its version Transact-SQL. The SQL programming language is called PL/SQL. In addition, Microsoft uses PowerShell as an administrative scripting language. Also, different disciplines have different terminology, such as rows and columns, records and fields, subjects and variables, etc.
+
+        
+        \subsection{Prerequisites}
+            \subsubsection{knowledge domain}
+            A database contains data (knowledge) relevant to a specific task. You must have some proficiency in the knowledge domain of that task. If you work for a bank, you must know something about banking!
+            \subsubsection{relational algebra}
+            Structured Query Language has a mathematical basis. When you write SQL, you are actually doing algebra, but you are using symbols rather than numbers.
+
+    \section{In Class Exercises --- An Example Database}
+        \subsection{Using the CLI}
+How to use the command line interrface to invoke the database.
+
+        \subsection{Using internal database commands}
+How to use the internal commands the database provides.
+
+        \subsection{Executing SQL statements}
+How to write and execute simple SQL commands.
+        
+        \subsection{SQL helps}
+Some useful references and resources for understanding ad learning SQL.
+
+    \section{Graded Labs --- Writing and Executing SQL Scripts}
+
+
+        \subsection{Using the Northwind database}
+The Northwind database is one that Microsoft used to train people how to use Access. You can find information about Northwind online.
+        \subsection{Examining the schema of tables}
+       Before you start using any database, you must understand the data the database contains, how the data is structured, and the relationshuip between the tables. 
+        \subsection{Writing simple queries}
+        You will write and execute queries from scripts, and redirect the output to text files. You will join two or more tables, filter data by given parameters, and sort data by specific variables. You are not expected to understand these queries (yet!) --- just to run then and understand the output.
+
+        \begin{lstlisting}
+select e.employeeid, e.firstname, e.lastname, o.orderid, o.orderdate from employees e join orders o on e.employeeid = o.employeeid;
+select e.employeeid, e.firstname, e.lastname, o.orderid, o.orderdate from employees e, orders o where e.employeeid = o.employeeid;
+
+select r.regiondescription, t.territorydescription from territories t join region r on r.regionid = t.regionid;
+select r.regiondescription, t.territorydescription from territories t, region r where r.regionid = t.regionid;
+
+select p.productname, s.companyname from products p join suppliers s on s.supplierid = p.supplierid order by s.companyname;
+select p.productname, s.companyname from products p, suppliers s where s.supplierid = p.supplierid order by s.companyname;
+
+select o.orderdate, o.orderid, d.productid, d.quantity, d.unitprice from order_details d join orders o on o.orderid = d.orderid where o.orderdate = '1998-05-05';
+select o.orderdate, o.orderid, d.productid, d.quantity, d.unitprice from order_details d, orders o where o.orderid = d.orderid and o.orderdate = '1998-05-05';
+
+select o.orderdate, o.orderid, p.productname, d.quantity, d.unitprice from order_details d join orders o on o.orderid = d.orderid join products p on p.productid = d.productid where o.orderdate = '1998-05-05';
+select o.orderdate, o.orderid, p.productname, d.quantity, d.unitprice from order_details d, orders o, products p where o.orderid = d.orderid and p.productid = d.productid and o.orderdate = '1998-05-05';
+
+select o.orderid, o.orderdate, c.companyname, s.companyname from orders o join customers c on o.customerid = c.customerid join shippers s on s.shipperid = o.shipperid where o.orderdate like '1998-01%';
+select o.orderid, o.orderdate, c.companyname, s.companyname from orders o, customers c, shippers s where o.customerid = c.customerid and s.shipperid = o.shipperid and o.orderdate like '1998-01%';
+
+select o.orderid, c.companyname, e.firstname, e.lastname, o.shipcountryfrom orders o join customers c on o.customerid = c.customerid join employees e on o.employeeid = e.employeeid where o.shipcountry = 'France';
+select o.orderid, c.companyname, e.firstname, e.lastname, o.shipcountry from orders o, customers c, employees e where o.customerid = c.customerid and  o.employeeid = e.employeeid and o.shipcountry = 'France';
+
+select distinct p.productname, o.shipcountry from orders o join order_details d on o.orderid = d.orderid join products p on  d.productid = p.productid where o.shipcountry = 'Germany'; 
+select distinct p.productname, o.shipcountry from products p, orders o, order_details d where o.orderid = d.orderid and d.productid = p.productid and o.shipcountry = 'Germany'; 
+        \end{lstlisting}
+
+
+    \section{Course Project}
+
+    In this exercise, you will create a database, create one or more tables, and execute queries on the database. You deliverable will be (1) the SQL script you use to complete the exercise, and (2) the text file containing the output of your queries. 
+
+
+    \subsection{Software Process}
+The software development cycle consists of an interative process with four phases, requirements analysis, design, implementation, and testing. These cycles repeat in what can be visualized as a spiral.
+
+    \subsection{Versioning Systems}
+We will use Git as our version control software. What is version control software and why do we need it?
+
+    \subsection{Layered Architecture}
+    This is similar in concept to the MVC design pattern, but is more suited to designing and building a data-driven application.
+
+    \subsection{Class Project Introduction}
+    The course project is a database supporting a baseball team. Discuss the basic requirements for this database. Generate a SQL script to build one table, insert some data, and execute some queries.
+
+    \section{Homework}
+
+    \subsection{Readings}
+    Read Chapter 1, T-SQL Fundamentals.
+
+    \subsection{Exercises}
+
+    \begin{enumerate}
+
+        \item Install SQL Server Express on a personal computer. See the appendix of the book, Getting Started, if you run into problems. Please, \textit{please} check the system requirements before you do this. You cannot install SQL Server on a hand held device or an internet appliance. This may take a couple of hours but you can read the text book while you are waiting.
+
+
+        \item Install SQL Server Management Studio on a personal computer. See the cautions above. This may take a long time as well.
+
+
+        \item (In class) We will be downloading and installing the database the text uses. Read the Introduction. This can be obtained from \url{http://aka.ms/T-SQLFund3e/downloads}.
+
+
+
+    \end{enumerate}
+
+\end{document}    

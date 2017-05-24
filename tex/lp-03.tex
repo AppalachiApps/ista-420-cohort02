@@ -1,0 +1,92 @@
+\documentclass{article}
+
+    \usepackage[margin=1in]{geometry}
+    \usepackage{hyperref}
+    \usepackage{listings}
+    \lstset{
+        breaklines = true,
+        language = SQL,
+        numbers = left,
+        basicstyle = \footnotesize
+    }
+
+    \title{Lesson Plan 03, ISTA-420}
+    \author{Chapter 2, T-SQL Fundamentals}
+    \date{June 1, 2017}
+
+\begin{document}    
+
+    \maketitle{}
+
+    \section{Class Discussion}
+
+    \begin{enumerate}
+
+        \item What is a \textit{primary key constraint}? What two other constraints is it equivilent to?
+        \item What is a \textit{nullability constraint}? What does it prevent?
+        \item What is a \textit{unique constraint}? What does it prevent?
+        \item What is a \textit{foreign key constraint}? What does it allow?
+        \item What is a \textit{check constraint}? What does it allow?
+        \item What is a \textit{default constraint}? What does it allow?
+        \item What is \textit{domain integrity}? This is not in your text book, but it's important.
+        \item What is the difference between the \textit{where} and the \textit{having} clauses? How are they alile?
+        \item What SQL operator has the highest precedence? What SQL operator has the lowest precedence?
+        \item Yes or no: In the SQL standard, is \textit{NULL} equal to  \textit{NULL}? Why or why not?
+
+
+
+    \end{enumerate}
+
+
+    \section{In Class Exercises}
+
+Using SQLite and the Northwind database, write a SQL script that executes the following queries. Your deliverables should be your SQL script and the text output.
+
+    \begin{enumerate}
+\item List the countries with most customers from high to low?
+\item What is the average price of products for each product category?
+\item What product category has the lowest number of units in stock?
+\item What postal codes experienced a significant delay in shipping on average?
+\item Do we make more money selling a few high priced items or many lot priced items?
+\item I need a list of our customers and the first name only of the customer representative.
+\item I want to see when customers placed orders in December. Give me a data file showing the day of all December orders.
+    
+    \end{enumerate}
+
+
+
+    \section{Graded Labs}
+
+Lab 2, exercises 1, 2, and 3, from 20761A, page 2-23. Labs will be directed by assigned students.
+
+
+    \section{Course Project}
+
+
+        \subsection{Software Process}
+
+        Requirements analysis and requirements engineering, UML and use cases.
+        
+        \subsection{Version Control}
+
+        We will learn how to add files to a Git repository.
+
+        \subsection{Project Assignment}
+
+        Create a basic requirements specification. Write and execute a SQL script that meets your requirements specification. You can use either SQLite or SQL Server, your choice. We will probably be using SQLite in the early stages of the project, but we will move to SQL Server later on. This has two purposes: (1) SQLite is simple and easy for developing prototypes of projects in the early stages, and (2) you need to learn how the SQL dialects understood by different database systems are mutually intelligible, and how they differ.
+
+    \section{Homework}
+
+
+        \subsection{Readings}
+         Read chapter 2 of the textbook T-SQL Fundamentals, pages 60 through 93.
+
+        
+        \subsection{Exercises}
+
+        \begin{itemize}
+        \item Do exercises 6 through 10 beginning on page 93. You are allowed to look at and copy the solutions, but make sure you understand the concepts. For example, if you give a query similar to exercise 1 but for another month, would you understand how to do it?
+
+        \item Read the Microsoft T-SQL documentation for the functions used in these exercises.
+        \end{itemize}
+\end{document}    

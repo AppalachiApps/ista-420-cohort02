@@ -1,0 +1,201 @@
+\documentclass{article}
+
+    \usepackage[margin=1in]{geometry}
+    \usepackage{hyperref}
+    \usepackage{listings}
+    \lstset{
+        breaklines = true,
+        language = SQL,
+        numbers = left,
+        basicstyle = \footnotesize
+    }
+
+    \title{Lesson Plan 02, ISTA-420}
+    \author{Chapter 2, T-SQL Fundamentals}
+    \date{May 31, 2017}
+
+\begin{document}    
+
+    \maketitle{}
+
+    \section{Class Discussion}
+    \begin{enumerate}
+
+        \item Give an informal definition of \textit{database} as used in the expression ``relational database management system.''
+
+
+        \item Give an informal definition of \textit{database} as used in the expression ``Human Resources database.''
+
+
+        \item Give an informal definition of \textit{entity integrity}.
+
+
+        \item Give an informal definition of \textit{referential integrity}.
+
+
+        \item What is a \textit{relation} as defined in the textbook? A one word answer to this question is sufficient.
+
+
+        \item Is this table in first normal form? Why or why not? If it is not, how would you change it?
+
+            \begin{verbatim}
+create table faculty (
+    facID int primary key,
+    facName text,
+    facCreds text);
+            \end{verbatim}
+
+            \begin{tabular}{| l | l | l |}
+\hline
+\textbf{facID} & \textbf{facName} & \textbf{facCreds} \\
+\hline
+1 & Alan Alda & BA, MA \\
+\hline
+2 & Bridgette Bardot & BS, MS, PhD \\
+\hline
+3 & Casey Cason & AA, BBA, MBA, DEd \\
+\hline
+
+            \end{tabular}
+
+        \item Is this table in second normal form? Why or why not? If it is not, how would you change it?
+
+            \begin{verbatim}
+create table pets (
+    ownerID int primary key,
+    petID int primary key,
+    ownerName text,
+    petName text,
+    petType text);
+            \end{verbatim}
+
+            \begin{tabular}{| l | l | l | l | l |}
+\hline
+\textbf{ownerID} & \textbf{petID} & \textbf{ownerName}  & \textbf{petName} & \textbf{petType} \\
+\hline
+1 & 1 & Dom Delouise & Rex & German Shepherd \\
+\hline
+1 & 2 & Dom Delouise & Lacy & Collie \\
+\hline
+2 & 1 & Emilio Estevez & Midnight & Persian Cat \\
+\hline
+            \end{tabular}
+
+        \item Is this table in third normal form? Why or why not? If it is not, how would you change it?
+
+            \begin{verbatim}
+create table friends (
+    friendID int primary key,
+    friendName text,
+    friendStreet text,
+    friendCity text,
+    friendState text,
+    friendZip text);
+            \end{verbatim}
+
+            \begin{tabular}{| l | l | l | l | l | l |}
+\hline
+\textbf{friendID} & \textbf{friendName} & \textbf{friendStreet}  & \textbf{friendCity} & \textbf{friendState} & \textbf{friendZip} \\
+\hline
+1 & Fred Flintstone & 123 Rock Quarry Rd & Bedrock & GA & 31905 \\  
+\hline
+2 & Greta Garbo & 456 Starlit Ave & Paris & FL & 30019 \\  
+\hline
+3 & Harry Houdini & 789 Hidden Glen Lane & Alcatraz & CA & 00000 \\  
+\hline
+            \end{tabular}
+
+        \item What is an \textit{OLTP database}? What operations is it optimized for?
+
+
+        \item What is a \textit{star schema}? What operations is it optimized for?
+
+
+    \end{enumerate}
+
+
+    \section{In Class Exercises}
+
+    \subsection{Installing TSQLV4}
+
+    We will download and install the database the text book uses. We will do this on the machine that you installed SQL Server and SSMS on. You will be using this for the homework.
+
+    \subsection{Class Exercises}
+
+Using SQLite and the Northwind database, write a SQL script that executes the following queries. Your deliverables should be your SQL script and the text output.
+
+        \begin{enumerate}
+            \item What are the regions?
+%=select * from region;
+            \item What are the cities?
+%=select TerritoryDescription from territories;
+            \item What are the cities in the Southern region?
+%=select territorydescription from territories where RegionID = 4;
+            \item How do you run this query with the fully qualified column name?
+%=select territories.territorydescription from territories where RegionID = 4;
+            \item How do you run this query with a table alias?
+%=select T.territorydescription from territories T where RegionID = 4;
+            \item What is the contact name, telephone number, and city for each customer?
+%=select ContactName, CompanyName, Phone, City from suppliers;
+            \item What are the products currently out of stock?
+%=select productname, unitsinstock from products where unitsinstock = 0;
+            \item What are the ten products currently in stock with the least amount on hand?
+%=select productname, unitsinstock from products where unitsinstock > 0 order by unitsinstock limit 10;
+            \item What are the five most expensive products in stock?
+%=select productname, unitprice from products order by unitprice desc limit 5;
+            \item How many products does Northwind have? How many customers? How many suppliers?
+%=select count(*) from products;
+%=select count(*) from customers;
+%=select count(*) from suppliers;
+        \end{enumerate}
+
+
+
+    \section{Graded Labs}
+
+Lab 1, exercises 1, 2, and 3, from 20761A, page 1-16. Labs will be directed by assigned students.
+
+    \section{Course Project}
+
+
+        \subsection{Software Process}
+
+        Requirements analysis, functional requirements, nonfunctional requirements. UML and use cases.
+        
+        \subsection{Version Control}
+
+        Initializing a local Git repository.
+
+        \subsection{Project Assignment}
+
+        Writing a formal requirements specification for the project. This should include examples of the data that is important to the project and at least one query.
+
+    \section{Homework}
+
+        \subsection{Readings}
+
+         Read chapter 2 of the textbook T-SQL Fundamentals, pages 27 through 59.
+
+        \subsection{Exercises}
+
+    \begin{enumerate}
+
+        \item Review the documentation and tutorials on the following web sites.
+            \begin{itemize}
+                \item Microsoft documentation, \url{https://docs.microsoft.com/en-us/sql/t-sql/queries/queries}
+                \item General SQL documentation, \url{https://sqlite.org/syntaxdiagrams.html}
+                \item SQL tutorial, \url{https://www.w3schools.com/sql/default.asp}
+                \item SQL tutorial, \url{https://www.tutorialspoint.com/t_sql/index.htm}
+            \end{itemize}
+
+
+        \item Do exercises 1 through 5 beginning on page 93. You are allowed to look at and copy the solutions, but make sure you understand the concepts. For example, if you give a query similar to exercise 1 but for another month, would you understand how to do it?
+
+    \end{enumerate}
+
+
+
+        
+
+
+\end{document}    
