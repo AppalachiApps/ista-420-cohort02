@@ -12,7 +12,7 @@
 
     \title{Lesson Plan 02, ISTA-420}
     \author{Chapter 2, T-SQL Fundamentals}
-    \date{May 31, 2017}
+    \date{June 1, 2017}
 
 \begin{document}    
 
@@ -148,7 +148,32 @@ Using SQLite and the Northwind database, write a SQL script that executes the fo
 %=select count(*) from customers;
 %=select count(*) from suppliers;
         \end{enumerate}
+        
+        \begin{lstlisting}
+select * from region;
 
+select TerritoryDescription from territories;
+
+select territorydescription from territories where RegionID = 4;
+
+select territories.territorydescription from territories where RegionID = 4;
+
+select T.territorydescription from territories T where RegionID = 4;
+
+select ContactName, CompanyName, Phone, City from suppliers;
+
+select productname, unitsinstock from products where unitsinstock = 0;
+
+select productname, unitsinstock from products where unitsinstock > 0 order by unitsinstock limit 10;
+
+select productname, unitprice from products order by unitprice desc limit 5;
+
+select count(*) from products;
+
+select count(*) from customers;
+
+select count(*) from suppliers;
+        \end{lstlisting}
 
 
     \section{Graded Labs}
@@ -164,11 +189,26 @@ Lab 1, exercises 1, 2, and 3, from 20761A, page 1-16. Labs will be directed by a
         
         \subsection{Version Control}
 
-        Initializing a local Git repository.
+        Initializing a local Git repository. Setting global configuration parameters.
 
         \subsection{Project Assignment}
 
-        Writing a formal requirements specification for the project. This should include examples of the data that is important to the project and at least one query.
+        This project consists of a baseball application. We start with the database, the bottom layer in the layered architecture approach.
+
+        Complete one complete development cycle. You have about an hour to do this. Work in pairs. Your deliverable will be one document described below.
+
+        By necessity, this will be a very simple project, the purpose of which is to give hands-on experience in each phase of the software development process. \textbf{NOTE: the software development and the database development process are two completely different processes.} A database development process consists (in part) of logical database design and physical database design. We will look at this in the coming weeks. For now, I want to focus on the software development process. 
+
+        \begin{enumerate}
+            \item \textbf{Requirements analysis:} As a requirements specification, choose one functional requirement (what this application will do) and state it fully. It shold be descriptive enough so that the testing phase can determine whether or not the implementation satisfies the requirement. A good place to begin might be a team roster, but you are encouraged to exercise your creativity. 
+
+            \item \textbf{Design:} State your design. Typically, you would use diagramming software (like Microsoft Visio) to do this, but a freehand drawing is certainly acceptable.  
+
+            \item \textbf{Implementation:} In this case, your implementation will be your SQL script --- the schema of your table. 
+
+            \item \textbf{Testing:} In this case, your tests will be the select queries showing that your implementation meets or fails to meet the requirements specification. 
+
+        \end{enumerate}
 
     \section{Homework}
 
