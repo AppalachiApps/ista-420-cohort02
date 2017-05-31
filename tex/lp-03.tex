@@ -12,7 +12,7 @@
 
     \title{Lesson Plan 03, ISTA-420}
     \author{Chapter 2, T-SQL Fundamentals}
-    \date{June 1, 2017}
+    \date{June 5, 2017}
 
 \begin{document}    
 
@@ -53,6 +53,28 @@ Using SQLite and the Northwind database, write a SQL script that executes the fo
     
     \end{enumerate}
 
+    \begin{lstlisting}
+select country, count(country) as count from customers group by country order by count desc;
+
+select categoryID, avg(UnitPrice) as averagePrice from products group by categoryID order by averagePrice desc; 
+
+select categoryID, sum(UnitsInStock) as inStock from products group by categoryID order by inStock;
+
+select shipPostalCode, 'average lag time', avg(OrderDate - ShippedDate) as lagTime from orders group by shipPostalCode having lagTime > 7;
+
+select productID, unitprice, count(Quantity) as quantity, sum(UnitPrice * quantity) as total from order_details  where unitprice < 10 group by productID having count(quantity) > 40 order by total desc;
+select productID, unitprice, count(Quantity) as quantity, sum(UnitPrice * quantity) as total  from order_details where unitprice > 150 group by productID having count(quantity) < 100 order by total desc;
+
+select substr(contactname, 1, pos-1) as first_name,
+       companyname
+from
+  (select *,
+          instr(contactname,' ') as pos
+   from customers)
+order by first_name;
+
+select strftime("%d", orderdate) as december_day from orders where orderdate like '19___12%';
+    \end{lstlisting}
 
 
     \section{Graded Labs}
