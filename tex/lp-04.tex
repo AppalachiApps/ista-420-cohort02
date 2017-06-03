@@ -20,36 +20,44 @@
 
     \section{Class Discussion}
 
+    Pages 52-73.
+
     \begin{enumerate}
 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
-
-
+        \item What is a data type? Why do we have data types?
+        \item What is a collation? Name four elements of a collation.
+        \item How would you strip whitespace from a string? For example, suppose you had ``\textvisiblespace{}\textvisiblespace{}\textvisiblespace{}\textvisiblespace{}Dave\textvisiblespace{}\textvisiblespace{}\textvisiblespace{}\textvisiblespace{}'' but wanted only ``Dave''. 
+        \item Suppose you wanted to make a list of every college and university that was called an Institute from the \texttt{college} table. Write the query.
+        \item How would you find out the index of the first space in a string? For example, the index of the first space n ``Barack Hussein Obama'' would be 7.
+        \item How would you select just the first name in a list of the presidents. First names can be an arbitrary length, from ``Cal'' to ``Benjamin.''
+        \item Payments are due exactly 30 days from the date of the last function. Write a select query that calculates the date of the next payment. Pretend we want to update a column in a database that contains the date of the next payment. We will do this when we write \texttt{UPDATE} queries. 
+        \item Suppose your son or daughter wants to run a query every day that tells them the number of days until their 16th birthday. Write a select query that does this.
+        \item What function returns the current date? This is very useful in a table that maintains a log of events, such as user logins.
 
     \end{enumerate}
-
 
     \section{In Class Exercises}
 
 Using SQLite and the Northwind database, write a SQL script that executes the following queries. Your deliverables should be your SQL script and the text output.
 
     \begin{enumerate}
+\item Group our suppliers by American, North American if they are located in Canada or Mexico, or Foreign if they are not located in the USA, Canada, or Mexico.
 \item I need a list of our customers and the first name only of the customer representative.
 \item You sell some kind of dried fruit that I liked very much. What is its name?
 \item Give me a list of our customer contacts alphabetically by last name. 
 \item I want to see when customers placed orders in December. Give me a data file showing the day of all December orders.
+\item How many days old are you today?
     \end{enumerate}
 
     \begin{lstlisting}
+select companyname, 
+    case country 
+    when 'USA' then 'American'
+    when 'Canada' then 'North American'
+    when 'Mexico' then 'North American'
+    else 'Foreign' 
+end as origin from suppliers;
+    
 select substr(contactname, 1, pos-1) as first_name, companyname
     from (select *, instr(contactname,' ') as pos from customers)
     order by first_name;
@@ -62,6 +70,8 @@ select --contactname,
        substr(contactname, instr(contactname, ' ') + 1) || ', ' ||
        substr(contactname, 1, instr(contactname, ' ') - 1) as alphaname
 from customers order by alphaname;
+
+select julianday('2017-06-03') - julianday('1950-01-18');
     \end{lstlisting}
 
 
@@ -74,7 +84,7 @@ Lab 2, exercises 1, 2, and 3, from 20761A, page 2-23. Labs will be directed by a
 
         \subsection{Software Process}
 
-        Program design, structured programming, top down development versus bottom up development. 
+        Software requirements specifications, what they are, how they are written, and examples.
         
         \subsection{Version Control}
 
@@ -91,7 +101,7 @@ Lab 2, exercises 1, 2, and 3, from 20761A, page 2-23. Labs will be directed by a
 
 
         \subsection{Readings}
-        Read pages 73 -- 102 in the \textit{T-SQL Fundamentals} book.
+        Read chapter 2, pages 73 -- 102 in the \textit{T-SQL Fundamentals} book.
 
         
         \subsection{Exercises}
