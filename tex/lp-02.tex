@@ -12,7 +12,7 @@
 
     \title{Lesson Plan 02, ISTA-420}
     \author{Chapter 2, T-SQL Fundamentals}
-    \date{June 1, 2017}
+    \date{May 31, 2017}
 
 \begin{document}    
 
@@ -75,9 +75,9 @@ create table pets (
 \hline
 1 & 1 & Dom Delouise & Rex & German Shepherd \\
 \hline
-1 & 2 & Dom Delouise & Lacy & Collie \\
+1 & 2 & Dom Delouise & Lacy & Border Collie \\
 \hline
-2 & 1 & Emilio Estevez & Midnight & Persian Cat \\
+2 & 3 & Emilio Estevez & Midnight & Persian Cat \\
 \hline
             \end{tabular}
 
@@ -93,15 +93,15 @@ create table friends (
     friendZip text);
             \end{verbatim}
 
-            \begin{tabular}{| l | l | l | l | l | l |}
+            \begin{tabular}{| l | l | l | l | l | l | l |}
 \hline
-\textbf{friendID} & \textbf{friendName} & \textbf{friendStreet}  & \textbf{friendCity} & \textbf{friendState} & \textbf{friendZip} \\
+\textbf{ID} & \textbf{FirstName} & \textbf{LastName} & \textbf{Street}  & \textbf{City} & \textbf{State} & \textbf{Zip} \\
 \hline
-1 & Fred Flintstone & 123 Rock Quarry Rd & Bedrock & GA & 31905 \\  
+1 & Fred & Flintstone & 123 Rock Quarry Rd & Bedrock & GA & 31905 \\  
 \hline
-2 & Greta Garbo & 456 Starlit Ave & Paris & FL & 30019 \\  
+2 & Greta & Garbo & 456 Starlit Ave & Paris & FL & 30019 \\  
 \hline
-3 & Harry Houdini & 789 Hidden Glen Lane & Alcatraz & CA & 00000 \\  
+3 & Harry & Houdini & 789 Hidden Glen Lane & Alcatraz & CA & 00000 \\  
 \hline
             \end{tabular}
 
@@ -126,27 +126,15 @@ Using SQLite and the Northwind database, write a SQL script that executes the fo
 
         \begin{enumerate}
             \item What are the regions?
-%=select * from region;
             \item What are the cities?
-%=select TerritoryDescription from territories;
             \item What are the cities in the Southern region?
-%=select territorydescription from territories where RegionID = 4;
             \item How do you run this query with the fully qualified column name?
-%=select territories.territorydescription from territories where RegionID = 4;
             \item How do you run this query with a table alias?
-%=select T.territorydescription from territories T where RegionID = 4;
             \item What is the contact name, telephone number, and city for each customer?
-%=select ContactName, CompanyName, Phone, City from suppliers;
             \item What are the products currently out of stock?
-%=select productname, unitsinstock from products where unitsinstock = 0;
             \item What are the ten products currently in stock with the least amount on hand?
-%=select productname, unitsinstock from products where unitsinstock > 0 order by unitsinstock limit 10;
             \item What are the five most expensive products in stock?
-%=select productname, unitprice from products order by unitprice desc limit 5;
             \item How many products does Northwind have? How many customers? How many suppliers?
-%=select count(*) from products;
-%=select count(*) from customers;
-%=select count(*) from suppliers;
         \end{enumerate}
         
         \begin{lstlisting}
@@ -160,18 +148,16 @@ select territories.territorydescription from territories where RegionID = 4;
 
 select T.territorydescription from territories T where RegionID = 4;
 
-select ContactName, CompanyName, Phone, City from suppliers;
+select ContactName, CompanyName, Phone, City from customers;
 
 select productname, unitsinstock from products where unitsinstock = 0;
 
 select productname, unitsinstock from products where unitsinstock > 0 order by unitsinstock limit 10;
 
-select productname, unitprice from products order by unitprice desc limit 5;
+select productname, unitprice from products where unitsinstock > 0 order by unitprice desc limit 5;
 
 select count(*) from products;
-
 select count(*) from customers;
-
 select count(*) from suppliers;
         \end{lstlisting}
 

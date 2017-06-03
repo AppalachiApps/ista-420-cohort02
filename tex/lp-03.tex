@@ -12,7 +12,7 @@
 
     \title{Lesson Plan 03, ISTA-420}
     \author{Chapter 2, T-SQL Fundamentals}
-    \date{June 5, 2017}
+    \date{June 1, 2017}
 
 \begin{document}    
 
@@ -47,9 +47,7 @@ Using SQLite and the Northwind database, write a SQL script that executes the fo
 \item What is the average price of products for each product category?
 \item What product category has the lowest number of units in stock?
 \item What postal codes experienced a significant delay in shipping on average?
-\item Do we make more money selling a few high priced items or many lot priced items?
-\item I need a list of our customers and the first name only of the customer representative.
-\item I want to see when customers placed orders in December. Give me a data file showing the day of all December orders.
+\item Do we have more revenue selling a few high priced items or many low priced items?
     
     \end{enumerate}
 
@@ -62,8 +60,8 @@ select categoryID, sum(UnitsInStock) as inStock from products group by categoryI
 
 select shipPostalCode, 'average lag time', avg(OrderDate - ShippedDate) as lagTime from orders group by shipPostalCode having lagTime > 7;
 
-select productID, unitprice, count(Quantity) as quantity, sum(UnitPrice * quantity) as total from order_details  where unitprice < 10 group by productID having count(quantity) > 40 order by total desc;
-select productID, unitprice, count(Quantity) as quantity, sum(UnitPrice * quantity) as total  from order_details where unitprice > 150 group by productID having count(quantity) < 100 order by total desc;
+select productID , unitprice , quantity , (UnitPrice * quantity)  as total from order_details where unitprice < 10 group by productID ;
+select productID , unitprice , quantity , (UnitPrice * quantity)  as total from order_details where unitprice >150 group by productID ;
 
 select substr(contactname, 1, pos-1) as first_name,
        companyname
@@ -79,7 +77,8 @@ select strftime("%d", orderdate) as december_day from orders where orderdate lik
 
     \section{Graded Labs}
 
-Lab 2, exercises 1, 2, and 3, from 20761A, page 2-23. Labs will be directed by assigned students.
+%Lab 2, exercises 1, 2, and 3, from 20761A, page 2-23. Labs will be directed by assigned students.
+    No graded labs today.
 
 
     \section{Course Project}
@@ -101,7 +100,7 @@ Lab 2, exercises 1, 2, and 3, from 20761A, page 2-23. Labs will be directed by a
 
 
         \subsection{Readings}
-         Read chapter 2 of the textbook T-SQL Fundamentals, pages 60 through 93.
+         Read chapter 2 of the textbook T-SQL Fundamentals, pages 52 through 73.
 
         
         \subsection{Exercises}
