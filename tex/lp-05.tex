@@ -90,7 +90,7 @@ select o.orderdate, o.orderid, p.productname, d.quantity, d.unitprice from order
 select o.orderid, o.orderdate, c.companyname, s.companyname from orders o join customers c on o.customerid = c.customerid join shippers s on s.shipperid = o.shipperid where o.orderdate like '1998-01%';
 select o.orderid, o.orderdate, c.companyname, s.companyname from orders o, customers c, shippers s where o.customerid = c.customerid and s.shipperid = o.shipperid and o.orderdate like '1998-01%';
 
-select o.orderid, c.companyname, e.firstname, e.lastname, o.shipcountryfrom orders o join customers c on o.customerid = c.customerid join employees e on o.employeeid = e.employeeid where o.shipcountry = 'France';
+select o.orderid, c.companyname, e.firstname, e.lastname, o.shipcountry from orders o join customers c on o.customerid = c.customerid join employees e on o.employeeid = e.employeeid where o.shipcountry = 'France';
 select o.orderid, c.companyname, e.firstname, e.lastname, o.shipcountry from orders o, customers c, employees e where o.customerid = c.customerid and  o.employeeid = e.employeeid and o.shipcountry = 'France';
 
 select distinct p.productname, o.shipcountry from orders o join order_details d on o.orderid = d.orderid join products p on  d.productid = p.productid where o.shipcountry = 'Germany'; 

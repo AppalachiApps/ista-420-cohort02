@@ -24,33 +24,20 @@
 
     \begin{enumerate}
         \item In your own words, what is a \textit{subquery}?
-        \item What is the difference between a subquery that returns a single value and one that returns multiple values? Give examples of where you would use each kind of subquery. 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
+        \item In your own words, what is a \textit{self contained subquery}?
+        \item In your own words, what is a \textit{correlated subquery}?
+        \item Give an example of a subquery that returns a single value. When would you use this kind of subquery?
+        \item Give an example of a subquery that returns multiple values. When would you use this kind of subquery?
+        \item Give an example of a subquery that returns table values. When would you use this kind of subquery?
+        \item What does the \textit{exists} predicate do? Give an example.
+        \item What happens if we use the \textit{not} operator before a predicate? Give an example.
+        \item When you use \textit{exists} or \textit{not exists} with respect to a row in a database, does it return two or three values? Explain your answer.
+        \item How would you a subquery to calculate aggregates? For example, you want to calculate yearly sales of a product, and you also want to keep a running sum of total sales. Explain how you would use a subquery to do this.
     \end{enumerate}
 
     \section{In Class Exercises}
 
-You will have ten querys to write. Use Sqlite with the NorthWind database. Submit your deliverable on your Github site. Your responses are due at 11:00 a.m.
-
-%    \begin{enumerate}
-%        \item What products do we have that cost more than the average price of all of our products?
-%        \item What is our highest priced product? Use a subquery for the answer.
-%        \item 
-%        \item 
-%        \item 
-%        \item 
-%        \item 
-%        item 
-%        \item 
-%        \item 
-%    \end{enumerate}
+    You will have ten queries to write. Use Sqlite with the NorthWind database. Submit your deliverable either by email to me at \url{cartec22@erau.edu} or by uploading to your Github site. Your responses are due exactly one hour after the start time.
 
     \section{Graded Labs}
 
@@ -65,12 +52,17 @@ You will have ten querys to write. Use Sqlite with the NorthWind database. Submi
         
         \subsection{Version Control}
 
-        TBA
+        Using markdown, headers, itemized lists and numbered lists.
 
         \subsection{Project Assignment}
 
         Your project assignment for today is testing. Write a SQL script that tests the implementation you did yesterday. You should test against the requirements specification that you wrote Monday. Test to see whether or not your implementation satisfies the requirements. Your deliverable should be a script file. You should also comment your script file to reference the particular requirement that your query tests. Note that a single requirement may result in many tests. Note whether your implementation satisfies the requirement. 
 
+        \subsection{Deliverables}
+
+        Please follow the following instructions do deliver your assignments. Create a local directory and name it ``ISTA420-project.'' In your project directory, create four subdirectories. Name them ``analysis,'' ``design,'' ``implementation,'' and ``tests.'' Initiate a Git repository in your project directory. Add your output files to this repository, commit them, and push them to a Github repository by the same name. Email me the URL of your Github repository at \url{cartec22@erau.edu}.
+
+        If you are unsure how to do this, I will walk you through this on Monday.
     \section{Homework}
 
 
