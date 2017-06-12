@@ -20,44 +20,67 @@
 
     \section{Class Discussion}
 
-    Pages 161 -- 183.
+    Test results, grades, new format of class room exercises, grading rubric for graded exercises and selection of  exercises. 
+    Pages 161 -- 183, chapter 5.
 
     \begin{enumerate}
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
-        \item 
+        \item What is a table expression? Can you give a technical definition of a table expression?
+        \item In what SQL clause are derived tables (table valued subqueries) located?
+        \item Why can you refer to column aliases in an outer query that you defined in an inner table valued subquery?
+        \item What SQL key word defines a common table expression?
+        \item When using common table expressions, can a subsequent derived table use a table alias declared in a preceding table expression?
+        \item Can a main query refer to a previously defined common table expression by multiple aliases?
+        \item In SQL, is a view a durable object?
+        \item In a view, what does WITH CHECK OPTION do? Why ius thus important?
+        \item In a view, what does SCHEMABINDING do? Why ius thus important?
+        \item What is a table valued function?
+        \item What does the APPLY operator do?
+        \item What are the two forms of the APPLY operator? Give an example of each.
     \end{enumerate}
 
     \section{In Class Exercises}
 
+    \begin{enumerate}
+        \item Write a query that returns all orders placed on the last day of activity that can be found in the Orders table.
+        \item Write a query that returns countries where there are customers but not employees. 
+        \item Write a query that returns customers who placed orders in 2015 but not in 2016 
+        \item Write a query that returns the customer ID,customer name, and country of customers that are not located in the United States using a table valued subquery. 
+        \item Do the same using a common table expression.
+        \item Do the same using a view.
+        \item Write a query returning the last three orders of each customer. Use the APPLY operator.
+    \end{enumerate}
+
 
     \section{Graded Labs}
 
+    Do LearnOnDemand Lab 5.
 
     \section{Course Project}
 
-        \subsection{Software Process}
-
-        
         \subsection{Version Control}
 
-        TBA.
+        Markdown: headings, itemized lists, numbered lists.
+
+        \subsection{Submission Instructions}
+
+        Create a directory on your local machine named \texttt{ista420-project}. Initialize a Git repository in that directory. In that directory, create four subdirectories named as follows:
+
+        \begin{verbatim}
+\ista420-project
+    \analysis
+    \design
+    \implementation
+    \tests
+        \end{verbatim}
+
+        Name your two requirements files like this: \texttt{iteration01-requirements.md}. You should have two files, last weeks is \texttt{iteration01} and this weeks will be \texttt{iteration02}. Use Markdown to format the requirements specifications. Place the requirements files in your \texttt{analysis} subdirectory. Add them to your Git repository, commit them, and push them to your Github project repository. Email me the URL of your Github repository at \url{cartec22@erau.edu}.
 
         \subsection{Project Assignment}
 
+        This week begins the second iteration. Do a second version of your requirements that you developed last week.
+
     \section{Homework}
 
-        \subsection{Readings}
-        Read pages 193 - 183 in the \textit{T-SQL Fundamentals} book.
-        
-        \subsection{Exercises}
-        Do all exercises in chapter 5.
+        Read pages 193 - 204 in the \textit{T-SQL Fundamentals} book.
 
 \end{document}    
