@@ -1,0 +1,72 @@
+\documentclass{article}
+
+    \usepackage[margin=1in]{geometry}
+    \usepackage{hyperref}
+    \usepackage{listings}
+    \lstset{
+        breaklines = true,
+        language = SQL,
+        numbers = left,
+        basicstyle = \footnotesize
+    }
+
+    \title{Lesson Plan 10, ISTA-420}
+    \author{Chapter 7, T-SQL Fundamentals}
+    \date{June 14, 2017}
+
+\begin{document}    
+
+    \maketitle{}
+
+    \section{Class Discussion}
+
+    Pages: 213 --- 230, chapter 7.
+
+    Pivot tables. Wide data and long data. Tables and crosstabs. Categorical and quantitative data.
+
+    \begin{enumerate}
+        \item What is a window function?
+        \item What does PARTITION do?
+        \item What does ROWS BETWEEN do?
+        \item What is a ranking window function? Why would you use it? Give an example.
+        \item What is an offset window function? Why would you use it? Give an example.
+        \item What do LEAD and LAG DO
+        \item What do FIRST\_VALUE and LAST\_VALUE do?
+        \item What is an aggragate window function? Why would you use it? Give an example.
+        \item What is a pivot table and what does it do?
+    \end{enumerate}
+
+    \section{In Class Exercises}
+
+    \begin{enumerate}
+        \item List the customer orders by date, and for each give the total quantity ordered together with a running total. Use the Sqles.CustOrders view.
+        \item List the orders by order number, and for each order, list the line item giving the prduct ID, quantity ordered, the rank by quantity, and the dense rank by quantity. Use the Sales.OrderDetails table.
+        \item For each customer, list the order number, the amount of the order, the order total, and the percent of each order's total to the total of all the orders. Use the Sales.OrderValues view.
+        \item For each order, list the order ID, and line items consisting of the product ID, the unit price, the quantity ordered, the price per product, and a running total for each order. Use the Sales.OrderValues view.
+        \item For each customer, list each order quantity, and in separate column, list tge quantity of each previous and each next order. Use the Sales.OrderValues view. 
+        \item For each supplier, list the products by name, the individual price of eac product, and a running total of the individual prics.
+    \end{enumerate}
+
+    \section{Graded Labs}
+
+    Do LearnOnDemand lab 7.
+
+    \section{Course Project}
+
+
+        \subsection{Software Engineering}
+
+        High cohesion, low coupling.
+
+        \subsection{Project Assignment}
+
+        Implementation.
+
+    \section{Homework}
+
+
+
+        Read chapter 7, pages 230  -- 240  in the \textit{T-SQL Fundamentals} book.
+        
+
+\end{document}    
